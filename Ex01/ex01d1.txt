@@ -1,0 +1,7 @@
+〜OSについて〜
+
+§Windowsシリーズ：世界シェアNo1を誇るOS。(yes)
+
+§iOS: Windowsに次ぐシェアを誇るOS。近年はiPhoneやiPadの普及により知らずと使うユーザーが増えている。(yes)
+
+§Android: 主に近年のスマートフォンに多く搭載されている。iPhoneはiOS、それ以外のスマートフォンはAndroidであることが多い(yes)

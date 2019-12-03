@@ -1,0 +1,9 @@
+(o ) int ave;
+(o ) int while;
+(x ) int result#2;使用できない記号（＃）が含まれている。
+(x ) int 4th;先頭の文字が数字である。
+(o ) int _5th;
+(x ) int no3  no4;空白は使用できない。
+(o ) int no1, no2;
+(o ) int sum_ave;
+(x ) int sum-ave;ハイフンは使用できない。

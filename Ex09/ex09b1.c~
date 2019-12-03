@@ -1,0 +1,18 @@
+//B-1
+
+#include <stdio.h>
+int main(){
+
+  int i,a[6],b[6];
+  double center,ave;
+  
+  for(i = 0 ; i < 6 ; i++){
+    printf("%d番目の線分の始点と終点を空白で区切って入力してください。\n"i+1);
+    scanf("%d%d",a[i],b[i]);
+    
+    center = (a[i]+b[i])/2;
+  }
+  ave = (a[0]+a[1]+a[2]+a[3]+a[4]+a[5])/6;
+  
+  return 0;
+}

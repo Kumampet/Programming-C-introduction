@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAXSIZE 8
+
+void cell(int);//要素に値する数
+
+int main(void){
+	int n;//入力する値
+	int i,j;//カウンター
+	int k[MAXSIZE][MAXSIZE];//表の値
+	
+	printf("何行目まで計算しますか？");
+	scanf("%d",&n);
+	/*-----数値の範囲判定-----*/
+	if(n<1 || MAXSIZE<n){
+		printf("数値が範囲外です。(0<n<9)\n");
+		exit(8);
+	}
+	/*-----入力値が１の場合-----*/
+	if(n==1){
+		printf("1\t\n");
+	}else{
+	/*-----表計算関数へ飛ばす-----*/
+	cell(n);
+	}
+	
+	return 0;
+}
+
+void cell(int n){
+	int i,j,l;//カウンタ
+	int k[MAXSIZE][MAXSIZE]={};//全要素を０で初期化
+	
+	/*----１行目を１で埋める-----*/
+	for(j=0; j<n; j++){//１行目の列要素
+		k[0][j] = 1;//１行目は全部１になる
+		printf("%d\t",k[0][j]);
+	}
+	printf("\n");
+	/*--------------------------------*/
+	/*-----２行目以降の処理------*/
+	for(i=1; i<n; i++){//２行目以降なので i は１から
+		for(j=0; j<n; j++){
+			for(l=0; l<=j; l++){
+				k[i][j] += k[i-1][l];//前行のｊ列目まで足す
+			}
+			printf("%d\t",k[i][j]);
+		}
+		printf("\n");
+	}
+}

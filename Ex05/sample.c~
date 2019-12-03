@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+int value = 4287;
+int a[ 4 ];
+
+a[0] = (value % 10); value /= 10;　// 1桁目を取り出す
+a[1] = (value % 10); value /= 10;　// 2桁目を取り出す
+a[2] = (value % 10); value /= 10;　// 3桁目を取り出す
+a[3] = (value % 10); value /= 10;　// 4桁目を取り出す
+
+				   printf("%d",a);
+ return 0;
+}

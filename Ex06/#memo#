@@ -1,0 +1,26 @@
+
+    x = n-r;
+    for(i = n ; x < i ; i--){
+      facn *= i;
+    }
+    
+    for(k = 1 ; k <= r ; k++){
+      facr *= k;
+    }
+    
+    combi = facn / facr;
+
+    printf("%dC%d = %d\n",n,r,combi);
+
+
+
+[][[]
+   for(r = 1 ; r <= n ; r++){
+      printf("[ ");
+      x = n-r;
+      facr *= r;
+      for(i = 1 ; i <= x ; i++){
+	facn *= i;
+	combi = facn / r;
+	printf("%d ",combi);
+

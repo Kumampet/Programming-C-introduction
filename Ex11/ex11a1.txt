@@ -1,0 +1,2 @@
+sort -rnk7 popu.txt > popu-s.txt
+head -5 popu-s.txt > popu-s.txt

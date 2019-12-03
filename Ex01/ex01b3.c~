@@ -1,0 +1,8 @@
+#include (stdio.h)
+
+int mein(){
+  printf("The introduction to C programming\n");
+  printf("The first exercise.\n");
+
+    return 0;
+}

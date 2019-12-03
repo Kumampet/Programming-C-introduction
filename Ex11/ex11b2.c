@@ -1,0 +1,81 @@
+/*
+標準入力から入力された画像をN倍に拡大するプログラムを作成しなさい。 ただしNはマクロにて指定すること。
+実行ファイル名は multiply とすること。
+なお、配列サイズをオーバーする場合のエラー処理は考慮しなくてもよい。 Nは大きくし過ぎないようにして下さい。
+[N = 4の場合の実行例]
+ % display feep64.pgm  (元画像)
+ Image:Feep64.gif
+
+ % ./multiply < feep64.pgm | display -
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#define N 4
+#define MSIZE 800
+
+int main()
+{
+  int dat[MSIZE][MSIZE];
+  int a,b,i, j, width, height, maxval;
+  /* 入力 */
+  /* ファイル形式のチェック */
+  /* この部分はプログラミング入門の範囲を越えているので、このまま使って下さい。*/
+  if (getchar() != 'P' || getchar() != '2'){
+    fprintf(stderr, "データの形式が違います\n");
+    exit(1);
+  }
+
+  /* x,yそれぞれの画素数を得る */
+  scanf("%d %d", &width, &height);
+ 
+  /* Maxval（白の値）を得る */
+  scanf("%d",&maxval);
+ 
+  /* 画素数が範囲外の場合 */
+  if (width < 1 || height < 1 || width > MSIZE || height > MSIZE){
+    fprintf(stderr, "設定サイズが範囲外です。\n");
+    exit(2);
+  }
+
+  /* Maxvalが範囲外 */
+  if (maxval < 1 || maxval >= 65536){
+    fprintf(stderr, "階調が範囲外です\n");
+    exit(2);
+  }
+
+  /* 実際のデータ入力 */
+  for (i = 0; i < height; i++){
+    for (j = 0; j < width; j++){
+      /* scanf入力データがおかしいかＥＯＦになった場合 */
+      if(scanf("%d",&dat[i][j]) != 1){
+        fprintf(stderr, "データ入力に異常があります\n");
+        exit(3);
+      }
+      /* データが範囲外 */
+      if (dat[i][j] < 0 || dat[i][j] > maxval){
+        fprintf(stderr, "データが異常でした\n");
+        exit(4);
+      }
+    }
+  }
+  /* これより上はどのプログラムもほぼ同じ */
+    /* 出力 */
+  /* 最初にP2とx,yの画素数、Maxvalを出力 */
+  printf("P2\n");
+  printf("%d %d\n", N*width, N*height);
+  printf("%d\n", maxval);
+
+  //データの拡大
+  for(i=0; i<height; i++){
+    for(a=0; a<N; a++){
+      for(j=0; j<width; j++){
+	for(b=0; b<N; b++){
+	  printf("%2d ",dat[i][j]);
+	}
+      }
+      printf("\n");
+    }
+  }
+      return 0;
+}      

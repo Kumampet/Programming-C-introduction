@@ -1,0 +1,6 @@
+Input a, b > scanf value = 2 (a:3, b:5)
+Input a, b > scanf value = 2 (a:2, b:4)
+Input a, b > scanf value = 1 (a:3, b:32767)
+Input a, b > scanf value = 1 (a:5, b:32767)
+Input a, b > scanf value = 1 (a:3, b:32767)
+Input a, b > scanf value = 0 (a:1807032414, b:32767)

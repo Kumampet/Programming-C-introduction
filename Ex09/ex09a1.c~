@@ -1,0 +1,20 @@
+//A-1
+
+#include <stdio.h>
+
+int main(){
+  int a[5],b[5],naiseki=0;
+
+  printf("ベクトルaiの座標を入力してください。\n");
+  for(i=0 ; i<5 ; i++){
+    scanf("[%d]",a[i]);
+  }
+  printf("ベクトルbiの座標を入力してください。\n");
+  for(i=0 ; i<5 ; i++){
+    scanf("[%d]",b[i]);
+  }
+  
+  naiseki += a[i]b[i];
+
+  return 0;
+}

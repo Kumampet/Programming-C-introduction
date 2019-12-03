@@ -1,0 +1,43 @@
+#include <stdio.h>
+#define MAX 50
+
+double bmi_hantei(double,double);
+
+int main(){
+  double weight[MAX],hight[MAX],bmi[MAX];
+  int i,ninzu=0;
+
+  printf("身長(cm)と体重(kg)を空白で区切って人数文入力してください\n");
+  for(i=0; i<MAX; i++)
+    {
+      if((scanf("%lf%lf",&hight[i],&weight[i]))!=EOF){
+      hight[i] = hight[i]/100;//身長をメートルに換算
+      bmi[i] = bmi_hantei(weight[i],hight[i]);
+      }
+      else break;
+      ninzu++;
+    }  
+  printf("人数\tBMI\t状態\n");
+  for(i=0; i<ninzu; i++){
+    if(bmi[i] < 18.5){
+      printf("%d人目\t%6.2f\tやせ形\n",i+1,bmi[i]);
+    }else if(18.5 <= bmi[i] && bmi[i] < 25){
+      printf("%d人目\t%6.2f\t標準形\n",i+1,bmi[i]);
+    }else if(25 <= bmi[i] && bmi[i] < 30){
+      printf("%d人目\t%6.2f\t肥満（１度）形\n",i+1,bmi[i]);
+    }else if(30 <= bmi[i] && bmi[i] < 35){
+      printf("%d人目\t%6.2f\t肥満（２度）形\n",i+1,bmi[i]);
+    }else if(35 <= bmi[i] && bmi[i] < 40){
+      printf("%d人目\t%6.2f\t肥満（３度）形\n",i+1,bmi[i]);
+    }else printf("%d人目\t%6.2f\t肥満（４度）形\n",i+1,bmi[i]);
+  }
+  return 0;
+}
+
+double bmi_hantei(double weight, double hight){
+  double bmi;
+
+  bmi = weight / (hight*hight);
+
+  return bmi;
+}

@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(){
+  int repay,a=200000,b,c=0,manth=0;
+  double A=0.15;
+
+  printf("毎月の返済額を入力して下さい：");
+  scanf("%d",&repay);
+
+  printf("200000円を定額リボ払いで月%d円ずつ返済します。\n",repay);
+
+  while(1){
+    if(a < repay)
+      break;
+    a = a + a * A / 12;
+    b = a - repay;
+    c = c + repay;
+    manth++;
+    printf("%3dヶ月: 金利手数料込残金：%6d円 支払後残金：%6d円 返済総額：%6d円\n",manth,a,b,c);
+    a = b;
+  }
+  manth = manth + 1;
+  a = a + a * A / 12;
+  b = a - a;
+  c = c + a;
+  printf("%3dヶ月: 金利手数料込残金：%6d円 支払後残金：%6d円 返済総額：%6d円\n",manth,a,b,c);
+
+  printf("返済期間%dヶ月  返済総額:%d円\n",manth,c);
+  return 0;
+}

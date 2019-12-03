@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main()
+{
+    double v;
+    scanf("%lf",v);
+    printf("%lf\n", v);
+    return 0;
+}

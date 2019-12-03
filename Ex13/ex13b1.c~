@@ -1,0 +1,47 @@
+/*10進数の0から255までの数値を8ビットの符号なし2進数で表示するプログラムを作成しなさい。
+その際、10進数を2進数へ変換して表示する関数 void d2b(int) を作成して使用すること。
+ただし、入力された値が負の場合は終了するものとする。
+[実行例]
+% ./a.out 
+2進数に変換したい10進数の数値を入力してください
+10
+00001010
+2進数に変換したい10進数の数値を入力してください
+43
+00101011
+2進数に変換したい10進数の数値を入力してください
+-1
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+void d2b(int);
+
+int main(){
+  unsigned int data;
+  int n[32],i;
+
+  printf("２進数に変換したい１０進数の数値を入力してください。\n");
+  scanf("%u",&data);
+  d2b(data);
+  return 0;
+}
+
+void d2b(int data){
+  int i,n[32];
+  if(0 <= data && data <= 255){
+    for(i=0; i<32; i++){
+      n[32-i] = data%2;
+      data /= 2;
+    }
+  }else if(data > 255){
+    printf("Illigal value!!\n");
+  }else{
+    exit(1);
+  }
+
+  for(i=0; i<32; i++){
+    printf("%1d",n[i]);
+  }
+  printf("\n");
+}

@@ -1,0 +1,19 @@
+//C-1
+
+#include <stdio.h>
+
+int main(){
+  int i,j,d,sumd;
+
+  for(i=1 ; i<=10000 ; i++){
+    for(j=1 ; j<i/2 ; j++){
+      if(i%j=0){
+	sumd += j;
+      }
+    }
+    if(i == sumd){
+      printf("%dは完全数です。\n",i);
+    }
+  }
+  return 0;
+}
